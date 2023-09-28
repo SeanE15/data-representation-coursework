@@ -17,11 +17,11 @@ doc = parseString(page.content)
     #traincode = traincodenode.firstChild.nodeValue.strip()
     #print(traincode)
 
-with open("week02_train,csv", mode="w", newline='') as train_file:
+with open("week01_train,csv", mode="w", newline='') as train_file:
   train_writer = csv.writer(train_file, delimiter='\t', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
-  objTrainPositionsNodes = doc.getElementsByTagName("objTrainPositions")
-  for objTrainPositionsNode in objTrainPositionsNodes:
+  TrainPositions = doc.getElementsByTagName("objTrainPositions")
+  for objTrainPositionsNode in TrainPositions:
     latitude_node = objTrainPositionsNode.getElementsByTagName("TrainLatitude").item(0)
     if latitude_node and latitude_node.firstChild:
       latitude = latitude_node.firstChild.nodeValue.strip()
