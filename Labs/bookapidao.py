@@ -1,5 +1,4 @@
 import requests 
-import json
 
 url = "http://andrewbeatty1.pythonanywhere.com/books"
 
@@ -15,7 +14,7 @@ def getBookById(id):
 
 def createBook(book):
     response = requests.post(url, json=book)
-    ## heads ={"Content=type":"application/json"}
+    ## heads = {"Content=type":"application/json"}
     ## response = requests.post(url, data=json.dumps(book), headers=headers)
     return response.json()
     pass 
