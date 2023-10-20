@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<library>
+<!-- Catalogue for technical books -->
+    <catalogue name="Technical Books">
+        <Book>
+            <ISBN>0764588451</ISBN>
+            <Title>XML For Dummies</Title>
+            <Author>Lucinda Dykes, Ed Tittel</Author>
+        </Book>
+        <Book>
+            <ISBN>1718502702</ISBN>
+            <Title>Python Crash Course</Title>
+            <Author>Eric Matthes</Author>
+        </Book>
+    </catalogue>
+<!-- Catalogue for cookery books -->
+    <catalogue name="Cookery Books">
+        <Book>
+            <ISBN>1786270889</ISBN>
+            <Title>Dark Side of the Spoon: The Rock Cookbook</Title>
+            <Author>Joe Inniss, Ralph Miller, Peter Stadden</Author>
+        </Book>
+        <Book>
+            <ISBN>0762441771</ISBN>
+            <Title>What the F*@# Should I Make for Dinner?: The Answers to Life's Everyday Question (in 50 F*@#ing Recipes)</Title>
+            <Author>Zach Golden</Author>
+        </Book>
+    </catalogue>
+</library>
