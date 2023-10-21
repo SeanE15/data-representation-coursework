@@ -20,4 +20,15 @@ repo = g.get_repo("SeanE15/private")
 #print(repo.clone_url)
 
 fileInfo = repo.get_contents("test.txt")
-print(fileInfo)
+urlofFile = fileInfo.download_url
+#print(fileInfo)
+
+response = requests.get("https://github.com/SeanE15/private/blob/main/test.txt")
+contentOfFile = response.text
+#print (contentOfFile)
+
+newContents = contentOfFile + "more stuff\n"
+print (newContents)
+
+gitHubResponse=repo.update_file(fileInfo.path,"updated by programme",newContents,fileInfo.sha)
+#print (gitHubResponse)
