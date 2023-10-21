@@ -27,8 +27,25 @@ response = requests.get("https://github.com/SeanE15/private/blob/main/test.txt")
 contentOfFile = response.text
 #print (contentOfFile)
 
-newContents = contentOfFile + "more stuff\n"
-print (newContents)
+newContent = contentOfFile + "more stuff\n"
+print (newContent)
 
-gitHubResponse=repo.update_file(fileInfo.path,"updated by programme",newContents,fileInfo.sha)
+gitHubResponse=repo.update_file(fileInfo.path,"updated by programme",newContent,fileInfo.sha)
 #print (gitHubResponse)
+
+file = "test.txt"
+old = "Andrew"
+new = "Sean"
+
+#define function to replace "Andrew" with "Sean"
+def replace(file, old, new):
+# open the test.txt file and read file 
+    with open(filename, "r") as file:
+        names = file.read()
+# replace 'Andrew' with 'Sean' - store changes in varibale 'names'
+    names = names.replace(old, new)
+# write to file the replacements stored in 'content'
+    with open(filename, "w") as file:
+        file.write(names)
+
+        
