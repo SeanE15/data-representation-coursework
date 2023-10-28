@@ -1,0 +1,122 @@
+<html>
+    <head>
+        
+        <title>
+            test get all
+        </title>
+        nothing appears here.<br/>
+        look at the console
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+    <script>
+        function getAll(callback){
+            $.ajax({
+                "url": "http://andrewbeatty1.pythonanywhere.com/books",
+                "method":"GET",
+                "data":"",
+                "dataType": "JSON",
+                "success":function(result){
+                    //console.log(result);
+                    callback(result)
+         
+                },
+                "error":function(xhr,status,error){
+                    console.log("error: "+status+" msg:"+error);
+                }
+            });
+
+        }
+
+        // testing code
+        function createBook(book, callback){
+            console.log(JSON.stringify(book));
+            $.ajax({
+                "url": "http://andrewbeatty1.pythonanywhere.com/books",
+                "method":"POST",
+                "data":JSON.stringify(book),
+                "dataType": "JSON",
+                contentType: "application/json; charset=utf-8",
+                "success":function(result){
+                    //console.log(result);
+                    callback(result)  
+                },
+                "error":function(xhr,status,error){
+                    console.log("error: "+status+" msg:"+error);
+                }
+            });
+
+        }
+        function updateBook(book, callback){
+            //console.log(JSON.stringify(book));
+            $.ajax({
+                "url": "http://andrewbeatty1.pythonanywhere.com/books/"+encodeURI(book.id),
+                "method":"PUT",
+                "data":JSON.stringify(book),
+                "dataType": "JSON",
+                contentType: "application/json; charset=utf-8",
+                "success":function(result){
+                    console.log(result);
+                    callback(result)   
+                },
+                "error":function(xhr,status,error){
+                    console.log("error: "+status+" msg:"+error);
+                }
+            });
+        }
+        function deleteBook(id, callback){
+            $.ajax({
+                "url": "http://andrewbeatty1.pythonanywhere.com/books/"+id,
+                "method":"DELETE",
+                "data":"",
+                "dataType": "JSON",
+                contentType: "application/json; charset=utf-8",
+                "success":function(result){
+                    console.log(result);
+                    callback(result)  
+                },
+                "error":function(xhr,status,error){
+                    console.log("error: "+status+" msg:"+error);
+                }
+            });
+
+        }
+
+
+
+        // testing code
+        
+        function processGetAllResponse(result){
+            console.log("in process")
+            //console.log(result)
+            for (book of result){
+                console.log(book)
+               
+                displayBook = {}
+                displayBook.id = book.id
+                displayBook.author = book.Author
+                displayBook.title = book.Title
+                displayBook.price = book.Price
+               
+            }
+        }
+         getAll(processGetAllResponse)
+
+       function processCreateResponse(result){
+            console.log(result)
+        }
+  
+        function processUpdateResponse(result){
+            console.log(result)
+        }
+        book = {id:101,"Price":999} 
+        
+        
+        function processDeleteResponse(result){
+            console.log("in pprocess delete")
+            console.log(result)
+        }
+        
+    </script>
+</html>
