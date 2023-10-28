@@ -28,7 +28,7 @@ contentOfFile = response.text
 #print (contentOfFile)
 
 newContent = contentOfFile + "more stuff\n"
-print (newContent)
+#print (newContent)
 
 gitHubResponse=repo.update_file(fileInfo.path,"updated by programme",newContent,fileInfo.sha)
 #print (gitHubResponse)
@@ -42,9 +42,9 @@ def replace(file, old, new):
 # open the test.txt file and read file 
     with open(filename, "r") as file:
         names = file.read()
-# replace 'Andrew' with 'Sean' - store changes in varibale 'names'
+# replace 'Andrew' with 'Sean' - store changes in variable 'names'
     names = names.replace(old, new)
-# write to file the replacements stored in 'content'
+# write to file the replacements stored in 'newContent'
     with open(filename, "w") as file:
         file.write(names)
 
