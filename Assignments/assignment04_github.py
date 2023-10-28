@@ -33,12 +33,8 @@ newContent = contentOfFile + "more stuff\n"
 gitHubResponse=repo.update_file(fileInfo.path,"updated by programme",newContent,fileInfo.sha)
 #print (gitHubResponse)
 
-file = "test.txt"
-old = "Andrew"
-new = "Sean"
-
 #define function to replace "Andrew" with "Sean"
-def replace(file, old, new):
+def replace(old, new):
 # open the test.txt file and read file 
     with open(filename, "r") as file:
         names = file.read()
@@ -48,4 +44,4 @@ def replace(file, old, new):
     with open(filename, "w") as file:
         file.write(names)
 
-        
+replace("Andrew", "Sean")      
