@@ -48,8 +48,9 @@
             });
 
         }
+
         function updateBook(book, callback){
-            //console.log(JSON.stringify(book));
+
             $.ajax({
                 "url": "http://andrewbeatty1.pythonanywhere.com/books/"+encodeURI(book.id),
                 "method":"PUT",
@@ -65,6 +66,7 @@
                 }
             });
         }
+        
         function deleteBook(id, callback){
             $.ajax({
                 "url": "http://andrewbeatty1.pythonanywhere.com/books/"+id,
@@ -82,14 +84,9 @@
             });
 
         }
-
-
-
-        // testing code
         
         function processGetAllResponse(result){
             console.log("in process")
-            //console.log(result)
             for (book of result){
                 console.log(book)
                
@@ -98,25 +95,33 @@
                 displayBook.author = book.Author
                 displayBook.title = book.Title
                 displayBook.price = book.Price
-               
+                console.log(displayBook)
             }
         }
-         getAll(processGetAllResponse)
+        getAll(processGetAllResponse)
 
        function processCreateResponse(result){
             console.log(result)
+
+        book = {"Title":"Balloon Animal Skyscraper","Author":"Sean","Price":150}
+        //createBook(book, processCreateResponse)
+
         }
   
         function processUpdateResponse(result){
             console.log(result)
         }
-        book = {id:101,"Price":999} 
+
+        book = {id:155, "Price":999}
+        //updateBook(book,processUpdateResponse)
+    
         
         
         function processDeleteResponse(result){
-            console.log("in pprocess delete")
+            console.log("in process delete")
             console.log(result)
         }
+        //deleteBook(155,processUpdateResponse)
         
     </script>
 </html>
